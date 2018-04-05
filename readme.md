@@ -1,5 +1,7 @@
 # SEC - ApiRest
 
+[TOC]
+
 
 
 ## Instalar
@@ -99,7 +101,7 @@ se debe tener en cuenta que se debe pasar como parametro los campos
 - fecha_de_nacimiento
 - horarios
 
-#### Login
+##### Login
 
 Para el login se debe realizar la petición con POST
 
@@ -113,11 +115,7 @@ se debe tener en cuenta que se debe pasar como parametro los campos
 - tipo (administrador, repartidor, empleado)
 - contraseña
 
-##### 
-
 #### Medicamentos
-
-
 
 ##### Obtener todos los medicamentos
 
