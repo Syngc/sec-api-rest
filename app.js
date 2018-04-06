@@ -16,6 +16,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended : false}));
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:8100' }));
+app.options('*', cors()) ;
 
 
 // view engine setup

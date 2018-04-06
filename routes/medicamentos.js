@@ -51,7 +51,7 @@ router.post('/medicamentos', (req, res ) => {
     "')  ON CONFLICT "+(b.id_codigo_inventario)+" DO NOTHING;"
     pool.query(query,[],(err, result) =>{
         if(err) {
-            res.send('No ha sido posible insertar el medicamento');
+            res.status(300).send('No ha sido posible insertar el medicamento');
         };
         res.end();
     });           
