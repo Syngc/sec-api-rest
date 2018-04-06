@@ -53,6 +53,7 @@ router.post('/medicamentos', (req, res ) => {
         if(err) {
             res.status(300).send('No ha sido posible insertar el medicamento');
         };
+        res.status(200).send("Medicamento insertado correctamente");
         res.end();
     });           
     
