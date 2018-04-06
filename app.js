@@ -15,7 +15,7 @@ var empleadosRouter = require('./routes/empleados');
 var app = express();
 app.use(bodyParser.urlencoded({ extended : false}));
 app.use(bodyParser.json());
-app.use(cors({ origin: 'http://localhost:8100' }));
+app.use(cors({"origin": "*","methods": "GET,HEAD,PUT,PATCH,POST,DELETE","preflightContinue": false,"optionsSuccessStatus": 204}));
 app.options('*', cors()) ;
 
 
