@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -14,7 +15,7 @@ var empleadosRouter = require('./routes/empleados');
 var app = express();
 app.use(bodyParser.urlencoded({ extended : false}));
 app.use(bodyParser.json());
-
+app.use(cors())
 
 
 // view engine setup
