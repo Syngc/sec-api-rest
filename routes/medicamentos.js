@@ -44,7 +44,6 @@ router.post('/medicamentos', (req, res ) => {
     "');"
     pool.query(query,[],(err, result) =>{
         if(err) {
-            throw err;
             res.send('No ha sido posible insertar el medicamento');
         };
         res.end();
