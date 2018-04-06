@@ -35,6 +35,7 @@ router.post('/medicamentos', (req, res ) => {
         }
     });
     var b = req.body;
+    console.log(b);
     var query = "INSERT INTO medicamento(id_codigo_inventario, nombre, unidades_disponibles, fecha_de_vencimiento, laboratorio, precio_unidad, categoria)" +
     " VALUES("+b.id_codigo_inventario+",'"+
                b.nombre+ "',"+
