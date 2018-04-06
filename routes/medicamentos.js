@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var pool = require('./dbconnection');
-var cors = require('cors')
-
 
 //Todos los medicamentos
-router.get('/medicamentos',cors() ,(req, res) => {
+router.get('/medicamentos', (req, res) => {
     pool.connect((err) => {
         if (err)console.error('connection error', err.stack)
     })
