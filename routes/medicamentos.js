@@ -9,7 +9,6 @@ router.get('/medicamentos', (req, res) => {
     })
     pool.query('SELECT * FROM medicamento', [], (err, result) => {        
         res.json(result.rows);
-        
     });
 });
 
