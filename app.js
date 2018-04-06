@@ -4,13 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-
+var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var medicamentosRouter = require('./routes/medicamentos');
 var empleadosRouter = require('./routes/empleados');
 
-medicamentosRouter.all('*', cors());
+medicamentosRouter.use('*', cors());
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended : false}));
