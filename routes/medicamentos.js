@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var pool = require('./dbconnection');
+var cors = require('cors')
+
+router.use(cors);
 
 //Todos los medicamentos
 router.get('/medicamentos', (req, res) => {
