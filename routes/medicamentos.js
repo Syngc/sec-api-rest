@@ -3,7 +3,12 @@ var router = express.Router();
 var pool = require('./dbconnection');
 var cors = require('cors')
 
-router.use(cors);
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200
+  };
+
+router.use(cors(corsOptions));
 
 //Todos los medicamentos
 router.get('/medicamentos', (req, res) => {
