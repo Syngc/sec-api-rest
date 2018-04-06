@@ -1,7 +1,7 @@
 const { Pool } = require('pg')
 //var conString = 'postgress://cymajo:canoteo0987@secdb.czilpwlpevmw.us-east-2.rds.amazonaws.com:5432/SEC';
 
-
+/*
 const pool  = new Pool({
   host: 'secdb.czilpwlpevmw.us-east-2.rds.amazonaws.com',
   database: 'SEC',
@@ -11,9 +11,9 @@ const pool  = new Pool({
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-});
+});*/
 
-/*
+
 const pool  = new Pool({
   host: 'ec2-54-163-240-54.compute-1.amazonaws.com',
   database: 'd8fcdkcafsabbi',
@@ -23,7 +23,7 @@ const pool  = new Pool({
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-});*/
+});
 
 
 module.exports = pool;
