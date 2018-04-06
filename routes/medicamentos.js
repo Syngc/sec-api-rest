@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var pool = require('./dbconnection');
+var cors = require('cors');
+
+router.all('*', cors());
 
 //Todos los medicamentos
 router.get('/medicamentos', (req, res) => {
@@ -41,10 +44,11 @@ router.post('/medicamentos', (req, res ) => {
                b.precio_unidad+",'"+
                b.categoria+
 
-    "')  ON CONFLICT "+(b.id_codigo_inventario)+" DO NOTHING;"
+    "')  ON CONFLICT (id_codigo_inventario) DO NOTHING;"
+    console.log(query)
     pool.query(query,[],(err, result) =>{
         if(err) {
-            res.status(300).send('No ha sido posible insertar el medicamento');
+            return res.status(300).send('No ha sido posible insertar el medicamento ' +err.stack);
         };
         res.status(200).send("Medicamento insertado correctamente");
         res.end();
