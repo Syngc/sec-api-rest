@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var medicamentosRouter = require('./routes/medicamentos');
 var empleadosRouter = require('./routes/empleados');
 
-medicamentosRouter.use('*', cors());
+medicamentosRouter.all('*', cors());
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended : false}));
