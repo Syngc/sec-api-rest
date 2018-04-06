@@ -32,6 +32,13 @@ router.post('/medicamentos', (req, res ) => {
         }
     });
     var b = req.body;
+    var ver = "SELECT * FROM medicamento WHERE id_codigo_inventario='"+b.id_codigo_inventario+"';";
+    pool.query(ver,[],(err, result) =>{
+        if(err) {
+            res.send('No ha sido posible insertar el medicamento');
+        };
+        res.status(300).send("El medicamento ya existe");
+    }); 
     var query = "INSERT INTO medicamento(id_codigo_inventario, nombre, unidades_disponibles, fecha_de_vencimiento, laboratorio, precio_unidad, categoria)" +
     " VALUES("+b.id_codigo_inventario+",'"+
                b.nombre+ "',"+
@@ -41,7 +48,7 @@ router.post('/medicamentos', (req, res ) => {
                b.precio_unidad+",'"+
                b.categoria+
 
-    "');"
+    "')  ON CONFLICT "+(b.id_codigo_inventario)+" DO NOTHING;"
     pool.query(query,[],(err, result) =>{
         if(err) {
             res.send('No ha sido posible insertar el medicamento');
