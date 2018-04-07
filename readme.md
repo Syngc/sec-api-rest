@@ -1,12 +1,8 @@
 # SEC - ApiRest
 
-[TOC]
-
-
-
 ## Instalar
 
-Clonamos el proyecto 
+Clonamos el proyecto , solo se instala en el caso de que se quiera modificar algo del server
 
 ```
 git clone https://github.com/Syngc/sec-api-rest
@@ -43,6 +39,8 @@ se debe tener en cuenta que se debe pasar como parametro los campos
 - correo
 - contraseña
 
+Si es la primera vez que se ingresa correctamente se retornara status = 201 
+
 ##### Registrar Cliente
 
 Para registrar se debe realizar la petición con POST
@@ -59,6 +57,21 @@ se debe tener en cuenta que se debe pasar como parametro los campos
 - nombre
 - fecha_de_nacimiento
 - genero
+
+##### Cambiar contraseña
+
+Se solicita atravez de una petición POST
+
+```
+http://api-rest-sec.herokuapp.com/u/put/login
+```
+
+Se debe pasar como parametros:
+
+- correo
+- contraseña
+
+
 
 #### Empleados
 
@@ -114,6 +127,22 @@ se debe tener en cuenta que se debe pasar como parametro los campos
 - correo
 - tipo (administrador, repartidor, empleado)
 - contraseña
+
+Si es la primera vez que se ingresa correctamente se retornara status = 201 
+
+##### Cambiar contraseña
+
+Se solicita atravez de una petición POST
+
+```
+http://api-rest-sec.herokuapp.com/e/put/login
+```
+
+Se debe pasar como parametros:
+
+- correo
+- contraseña
+- tipo (administrador, empleado, repartidor)
 
 #### Medicamentos
 
