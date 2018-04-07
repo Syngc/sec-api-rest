@@ -72,6 +72,7 @@ router.post('/repartidor', (req, res) => {
                          contraseña+"','"+
                          b.horarios+"','"+
                          "false');";
+  console.log(query);
   pool.query(query,[], (err, result) => {
     if(err){
       console.log(err.stack);
@@ -95,7 +96,8 @@ router.post('/administrador', (req, res) => {
                          b.nombre+"','"+
                          b.fecha_de_nacimiento+"','"+
                          contraseña+"','"+
-                         "false');";
+                         "false')";
+  console.log(query);
   pool.query(query,[], (err, result) => {
     if(err){
       console.log(err.stack);
