@@ -22,8 +22,7 @@ router.post('/login', (req, res) => {
     if(pass != result.rows[0].contraseña)
       return res.status(300).send('Contraseña incorrecta');
     else
-      console.log('activo '+ result.rows[0].activo );
-      if(result.rows[0].activo == "false"){
+      if(result.rows[0].activo == false){
         return res.status(201).send('Primera vez que inicia sesión');
       }
     res.status(200).send('Ha iniciado sesion correctamente');
