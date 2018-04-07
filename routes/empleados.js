@@ -96,7 +96,7 @@ router.post('/administrador', (req, res) => {
                          b.nombre+"','"+
                          b.fecha_de_nacimiento+"','"+
                          contraseña+"','"+
-                         "false' ON CONFLICT (id_administrador) DO NOTHING;";
+                         "false') ON CONFLICT (id_administrador) DO NOTHING;";
   console.log(query);
   pool.query(query,[], (err, result) => {
     if(err){
