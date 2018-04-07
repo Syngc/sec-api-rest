@@ -15,15 +15,14 @@ router.post('/login', (req, res) => {
   var correo = req.body.correo;
   var pass = req.body.contrasena;
   var tipo = req.body.tipo;
-  console.log('tipo '+tipo);
   var querycons = "SELECT correo,contraseña,activo FROM "+tipo+" WHERE correo='"+correo+"';";
-  console.log(querycons);
   pool.query(querycons, [], (err, result)  => {
     if(err)
       return res.status(400).send('Se ha producido un error: ' + err.message);
     if(pass != result.rows[0].contraseña)
       return res.status(300).send('Contraseña incorrecta');
     else
+      console.log('activo '+ result.rows[0].activo );
       if(result.rows[0].activo == "false"){
         return res.status(201).send('Primera vez que inicia sesión');
       }
