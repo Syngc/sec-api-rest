@@ -15,6 +15,7 @@ router.post('/login', (req, res) => {
   var correo = req.body.correo;
   var pass = req.body.contraseña;
   var tipo = req.body.tipo;
+  console.log('tipo '+tipo);
   var querycons = "SELECT correo,contraseña,activo FROM "+tipo+" WHERE correo='"+correo+"';";
   console.log(querycons);
   pool.query(querycons, [], (err, result)  => {
