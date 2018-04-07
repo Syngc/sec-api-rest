@@ -20,7 +20,7 @@ router.post('/solicituddomicilio', (req, res ) => {
                b.nomenclatura+",'"+
                b.estado +
 
-    "');"
+    "');";
     pool.query(query,[],(err, result) =>{
         if(err) {
             return res.status(300).send('No ha sido posible insertar el medicamento ' +err.stack);
