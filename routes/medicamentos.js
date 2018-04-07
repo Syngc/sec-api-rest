@@ -24,6 +24,9 @@ router.get('/medicamentos/:categoria', (req, res) => {
         }
     });
     pool.query("SELECT * FROM medicamento WHERE categoria='"+categoria+"';", [], (err, result) => {
+        if(err){
+            return res.status(400).send('No hay medicamentos en la categoria');
+        }
         res.json(result.rows);
     });
 });
@@ -37,6 +40,9 @@ router.get('/medicamentos/id/:id', (req, res) => {
         }
     });
     pool.query("SELECT * FROM medicamento WHERE id_codigo_inventario='"+id+"';", [], (err, result) => {
+        if(err){
+            return res.status(400).send('No existe el medicamento');
+        }
         res.json(result.rows);
     });
 });
