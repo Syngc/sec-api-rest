@@ -10,7 +10,7 @@ router.get('/medicamentos', (req, res) => {
     pool.connect((err) => {
         if (err)console.error('connection error', err.stack)
     })
-    pool.query('SELECT * FROM medicamento', [], (err, result) => {        
+    pool.query('SELECT * FROM medicamento', [], (err, result) => {
         res.json(result.rows);
     });
 });
@@ -22,8 +22,21 @@ router.get('/medicamentos/:categoria', (req, res) => {
         if (err){
             console.error('connection error', err.stack);
         }
-    });    
-    pool.query("SELECT * FROM medicamento WHERE categoria='"+categoria+"';", [], (err, result) => {      
+    });
+    pool.query("SELECT * FROM medicamento WHERE categoria='"+categoria+"';", [], (err, result) => {
+        res.json(result.rows);
+    });
+});
+
+//Medicamento por id
+router.get('/medicamentos/id/:id', (req, res) => {
+    var id = req.params.id;
+    pool.connect((err) => {
+        if (err){
+            console.error('connection error', err.stack);
+        }
+    });
+    pool.query("SELECT * FROM medicamento WHERE id_codigo_inventario='"+id+"';", [], (err, result) => {
         res.json(result.rows);
     });
 });
@@ -51,8 +64,8 @@ router.post('/medicamentos', (req, res ) => {
         };
         res.status(200).send("Medicamento insertado correctamente");
         res.end();
-    });           
-    
+    });
+
 });
 
 router.post('/put/medicamentos/:id', (req, res) => {
