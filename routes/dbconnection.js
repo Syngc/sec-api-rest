@@ -22,10 +22,10 @@ const pool2  = new Pool({
   port: 5432,
   max: 20,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000, 
+  connectionTimeoutMillis: 2000,
   sslmode: 'require'
 });
 
 
 
-module.exports = pool1;
+module.exports = pool2;
