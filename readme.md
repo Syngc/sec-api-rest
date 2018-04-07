@@ -162,10 +162,10 @@ se debe tener en cuenta que se debe pasar como parametro los campos
 
 ##### Modificar medicamento
 
-Para modificar un medicamento se hace por una peticion PUT
+Para modificar un medicamento se hace por una peticion POST
 
 ```
-http://api-rest-sec.herokuapp.com/m/medicamentos/:id
+http://api-rest-sec.herokuapp.com/m/put/medicamentos/:id
 ```
 
 Donde id es el identificador unico del medicamento.
@@ -181,10 +181,10 @@ Los campos que es posible modificar son:
 
 ##### Eliminar medicamento 
 
-Para modificar un medicamento se hace por una peticion DELETE
+Para modificar un medicamento se hace por una peticion POST
 
 ```
-http://api-rest-sec.herokuapp.com/m/medicamentos/:id
+http://api-rest-sec.herokuapp.com/m/del/medicamentos/:id
 ```
 
 Donde id es el identificador unico del medicamento.

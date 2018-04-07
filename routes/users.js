@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var pool = require('./dbconnection');
 var emailCtrl = require('../controllers/emailCtrl');
+var cors = require('cors');
+
+router.all('*', cors());
 
 
 //Login
@@ -12,8 +15,7 @@ router.post('/login', (req, res) => {
   var correo = req.body.correo;
   var pass = req.body.contraseña;
   var querycons = "SELECT correo,contraseña FROM cliente WHERE correo='"+correo+"'";
-  client.connect();
-  client.query(querycons, [], (err, result)  => {
+  pool.query(querycons, [], (err, result)  => {
     if(err)
       res.status(400).send('Se ha producido un error: ' + err.message);
     if(pass != result.rows[0].contraseña)
@@ -21,12 +23,11 @@ router.post('/login', (req, res) => {
     else
       res.status(200).send('Ha iniciado sesion correctamente');
     res.end();
-    client.end();
   });
 });
 
 //Cambiar contraseña 
-router.put('/login/', (req, res) => {
+router.post('/put/login/', (req, res) => {
   pool.connect((err) => {
       if (err){
           console.error('connection error', err.stack);
@@ -35,7 +36,7 @@ router.put('/login/', (req, res) => {
   var b = req.body;
   var correo = b.correo;
   var pass = b.contraseña
-  var query = "UPDATE cliente SET contraseña='"+pass+"' WHERE correo='"+correo+"';";
+  var query = "UPDATE cliente SET contraseña='"+pass+"' , activo ='true' WHERE correo='"+correo+"';";
   console.log(query);
   pool.query(query,[],(err, result) => {
       if(err){
@@ -54,7 +55,7 @@ router.post('/signup', (req, res) => {
   });
   var b = req.body;
   var contraseña = Math.random().toString(36).substring(7);
-  var query = "INSERT INTO cliente(id_cliente,tipo_documento,correo,nombre,fecha_de_nacimiento,contraseña,genero,activo)"+
+  var query = "INSERT INTO cliente(id_cliente,tipo_documento,correo,nombre,fecha_nacimiento,contraseña,genero,activo)"+
               " VALUES("+b.id_cliente+",'"+
                          b.tipo_documento+"','"+
                          b.correo+"','"+
@@ -63,6 +64,7 @@ router.post('/signup', (req, res) => {
                          contraseña+"','"+
                          b.genero+"','"+
                          "false');";
+  console.log(query);
   pool.query(query,[], (err, result) => {
     if(err){
       console.log(err.stack);

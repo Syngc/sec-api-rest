@@ -35,7 +35,6 @@ router.post('/medicamentos', (req, res ) => {
         }
     });
     var b = req.body;
-    console.log(req);
     var query = "INSERT INTO medicamento(id_codigo_inventario, nombre, unidades_disponibles, fecha_de_vencimiento, laboratorio, precio_unidad, categoria)" +
     " VALUES("+b.id_codigo_inventario+",'"+
                b.nombre+ "',"+
@@ -46,7 +45,6 @@ router.post('/medicamentos', (req, res ) => {
                b.categoria+
 
     "')  ON CONFLICT (id_codigo_inventario) DO NOTHING;"
-    console.log(query)
     pool.query(query,[],(err, result) =>{
         if(err) {
             return res.status(300).send('No ha sido posible insertar el medicamento ' +err.stack);
@@ -57,7 +55,7 @@ router.post('/medicamentos', (req, res ) => {
     
 });
 
-router.put('/medicamentos/:id', (req, res) => {
+router.post('/put/medicamentos/:id', (req, res) => {
     pool.connect((err) => {
         if (err){
             console.error('connection error', err.stack);
@@ -81,7 +79,7 @@ router.put('/medicamentos/:id', (req, res) => {
     });
 });
 
-router.delete('/medicamentos/:id', (req, res) => {
+router.post('/del/medicamentos/:id', (req, res) => {
     pool.connect((err) => {
         if (err){
             console.error('connection error', err.stack);
