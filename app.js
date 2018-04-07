@@ -10,8 +10,6 @@ var usersRouter = require('./routes/users');
 var medicamentosRouter = require('./routes/medicamentos');
 var empleadosRouter = require('./routes/empleados');
 
-medicamentosRouter.all('*', cors());
-
 var app = express();
 app.use(bodyParser.urlencoded({ extended : false}));
 app.use(bodyParser.json());
