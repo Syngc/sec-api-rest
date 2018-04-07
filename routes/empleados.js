@@ -72,6 +72,7 @@ router.post('/repartidor', (req, res) => {
                          contraseña+"','"+
                          b.horarios+"','"+
                          "false');";
+  console.log(query);
   pool.query(query,[], (err, result) => {
     if(err){
       console.log(err.stack);
