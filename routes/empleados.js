@@ -13,7 +13,7 @@ router.post('/login', (req, res) => {
     if (err)console.error('connection error', err.stack)
   });
   var correo = req.body.correo;
-  var pass = req.body.contraseña;
+  var pass = req.body.contrasena;
   var tipo = req.body.tipo;
   console.log('tipo '+tipo);
   var querycons = "SELECT correo,contraseña,activo FROM "+tipo+" WHERE correo='"+correo+"';";
