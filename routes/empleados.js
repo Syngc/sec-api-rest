@@ -41,7 +41,7 @@ router.post('/put/login/', (req, res) => {
   var tipo = b.tipo;
   var correo = b.correo;
   var pass = b.contrasena
-  var query = "UPDATE "+tipo+" SET contraseña='"+pass+"' WHERE correo='"+correo+"';";
+  var query = "UPDATE "+tipo+" SET contraseña='"+pass+"' , activo ='true' WHERE correo='"+correo+"';";
   console.log(query);
   pool.query(query,[],(err, result) => {
       if(err){

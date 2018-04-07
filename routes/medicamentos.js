@@ -112,7 +112,64 @@ router.post('/del/medicamentos/:id', (req, res) => {
         })
     });
 
-})
+});
+
+router.post('/addImagen', (req,res) => {
+    pool.connect((err) => {
+        if (err){
+            console.error('connection error', err.stack);
+        }
+    });
+    var b = body.req;
+    var imagen = b.imagen;
+    var id_codigo_inventario = b.id_codigo_inventario;
+    var query = "INSERT INTO foto_medicamento(foto, id_codigo_inventario)" +
+                "VALUES("+ imagen + "," +
+                           id_codigo_inventario + ");";
+    pool.query(query, [], (err, result) => {
+        if(err){
+            return res.status(300).send('No fue posible insertar foto');
+        }
+        res.send('Foto insertada correctamente');
+        res.end();
+    });
+});
+
+router.post('/getImagen', (req,res) => {
+    pool.connect((err) => {
+        if (err){
+            console.error('connection error', err.stack);
+        }
+    });
+    var b = body.req;
+    var query = "SELECT * FROM foto_medicamento WHERE id_codigo_inventario="+b.id_codigo_inventario+";";
+    pool.query(query, [], (err, result) => {
+        if(err){
+            return res.status(300).send('No se encontraron fotos');
+        }
+        res.send(result.rows);
+        res.end();
+    });
+});
+
+router.post('/delImagen', (req,res) => {
+    pool.connect((err) => {
+        if (err){
+            console.error('connection error', err.stack);
+        }
+    });
+    var b = body.req;
+    var query = "DELETE FROM foto_medicamento WHERE id_foto="+b.id_foto+";";
+    pool.query(query, [], (err, result) => {
+        if(err){
+            return res.status(300).send('No se encontraron fotos');
+        }
+        res.send(result.rows);
+        res.end();
+    });
+});
+
+
 
 
 
