@@ -25,7 +25,6 @@ router.post('/solicituddomicilio', (req, res ) => {
         if(err) {
             return res.status(300).send('No ha sido posible insertar el medicamento ' +err.stack);
         };
-
         res.status(200).send(JSON.stringify("mensajeResponse"));
         res.end();
     });

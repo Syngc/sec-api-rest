@@ -8,7 +8,7 @@ const pool1  = new Pool({
   user: 'cymajo',
   password: 'canoteo0987',
   port: 5432,
-  max: 20,
+  max: 200,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
 });
