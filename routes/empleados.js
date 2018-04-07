@@ -97,6 +97,7 @@ router.post('/administrador', (req, res) => {
                          b.fecha_de_nacimiento+"','"+
                          contraseña+"','"+
                          "false');";
+  console.log(query);
   pool.query(query,[], (err, result) => {
     if(err){
       console.log(err.stack);
