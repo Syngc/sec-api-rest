@@ -4,6 +4,8 @@ var pool = require('./dbconnection');
 var emailCtrl = require('../controllers/emailCtrl');
 var cors = require('cors');
 
+router.all('*', cors());
+
 //Agregar solicitud de domicilio cliente
 router.post('/solicituddomicilio', (req, res ) => {
     pool.connect((err) => {
