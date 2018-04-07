@@ -31,3 +31,5 @@ router.post('/solicituddomicilio', (req, res ) => {
     });
 
 });
+
+module.exports = router;
