@@ -16,8 +16,8 @@ router.post('/solicituddomicilio', (req, res ) => {
     var b = req.body;
     var query = "INSERT INTO solicitud_domicilio(id_cliente, tipo_documento_cliente, nomenclatura, estado)" +
     " VALUES("+b.id_cliente+",'"+
-               b.tipo_documento_cliente+ "',"+
-               b.nomenclatura+",'"+
+               b.tipo_documento_cliente+ "','"+
+               b.nomenclatura+"','"+
                b.estado +
 
     "');"
@@ -25,11 +25,8 @@ router.post('/solicituddomicilio', (req, res ) => {
         if(err) {
             return res.status(300).send('No ha sido posible insertar el medicamento ' +err.stack);
         };
-        var mensajeResponse = {
-          mensaje: "Solicitud de domicilio enviada correctamente",
-          resultado: result
-        }
-        res.status(200).send(JSON.stringify(mensajeResponse));
+
+        res.status(200).send(JSON.stringify("mensajeResponse"));
         res.end();
     });
 
