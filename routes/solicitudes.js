@@ -27,7 +27,7 @@ router.post('/solicituddomicilio', (req, res ) => {
           mensaje: "Solicitud de domicilio enviada correctamente",
           resultado: result
         }
-        res.status(200).send(mensajeResponse);
+        res.status(200).send(JSON.stringify(mensajeResponse));
         res.end();
     });
 
