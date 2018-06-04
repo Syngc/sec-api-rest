@@ -49,7 +49,7 @@ router.get('/medicamentos/id/:id', (req, res) => {
 
 //medicamento por nombre 
 router.get('/medicamentos/nombre/:nombre', (req, res) => {
-    var nombre = req.params.nombreMedicamento;
+    var nombre = req.params.nombre;
     pool.connect((err) => {
         if (err) {
             console.error('connection error', err.stack);
@@ -65,8 +65,8 @@ router.get('/medicamentos/nombre/:nombre', (req, res) => {
 
 //medicamento por nombre y categoria 
 router.get('/medicamentos/nombrecat/:nombre/:categoria', (req, res) => {
-    var nombre = req.params.nombreMedicamento;
-    var categoria = req.params.categoriaMedicamento;
+    var nombre = req.params.nombre;
+    var categoria = req.params.categoria;
     pool.connect((err) => {
         if (err) {
             console.error('connection error', err.stack);
