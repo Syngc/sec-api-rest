@@ -72,7 +72,7 @@ router.get('/medicamentos/nombrecat/:nombre/:categoria', (req, res) => {
             console.error('connection error', err.stack);
         }
     });
-    pool.query("SELECT * FROM medicamento WHERE WHERE nombre ~* '" + nombre + "' AND categoria = '" + categoria + "';", [], (err, result) => {
+    pool.query("SELECT * FROM medicamento WHERE nombre ~* '" + nombre + "' AND categoria = '" + categoria + "';", [], (err, result) => {
         if (err) {
             return res.status(400).send('No existe el medicamento');
         }
