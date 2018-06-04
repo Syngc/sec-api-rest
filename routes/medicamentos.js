@@ -57,7 +57,7 @@ router.get('/medicamentos/nombre/:nombre', (req, res) => {
     });
     pool.query("SELECT * FROM medicamento WHERE WHERE nombre ~* '" + nombre + "';", [], (err, result) => {
         if (err) {
-            return res.status(400).send('No existe el medicamento');
+            return res.status(400).send('No existe el medicamento con nombre ' + nombre);
         }
         res.json(result.rows);
     });
