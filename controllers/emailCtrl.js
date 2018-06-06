@@ -16,7 +16,6 @@ module.exports = (email, user, pass) => {
         text: 'Bienvenido ' + user + ' su contraseña es ' + pass
     };
     transporter.sendMail(mailOptions, function(error, info) {
-        console.log("si entra aca2");
         if (error) {
             console.log(error);
         } else {

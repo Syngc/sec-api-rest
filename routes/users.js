@@ -71,7 +71,6 @@ router.post('/signup', (req, res) => {
             return res.status(400).send(err.stack);
         }
         emailCtrl(b.correo, b.nombre, contraseña);
-        console.log("llega hasta aca bn");
         res.end();
     });
 });
