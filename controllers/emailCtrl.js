@@ -6,7 +6,7 @@ module.exports = (email, user, pass) => {
         service: 'Gmail',
         auth: {
             user: 'noreplaysec1@gmail.com',
-            pass: 'canoteo0987'
+            pass: 'medellin123'
         }
     });
     var mailOptions = {
